@@ -1,7 +1,6 @@
 const express = require("express");
-const mongoose = require("mongoose");
+const mongoose = require("./models/node_modules/mongoose");
 const routes = require("./routes");
-const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -19,7 +18,8 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist"
+  process.env.MONGODB_URI || "mongodb://localhost/googlebooks", 
+  {useNewUrlParser: true}
 );
 
 // Send every other request to the React app
