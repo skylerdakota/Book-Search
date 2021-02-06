@@ -1,25 +1,25 @@
-import React from 'react';
+import React, { component } from 'react';
 import { Container } from 'react-bootstrap';
 import Jumbotron from "../../components/Jumbotron";
 import SavedBooks from "../components/SavedBooks/SavedBooks";
 import API from "../../utils/API";
 
-class Saved extends React.Component {
+class Saved extends React{
     state = {
-        books: []
+        savedBooks: []
     }
 
     componentDidMount = () => {
-        this.getSavedBooks();
+        this.getBooks();
     }
 
     getSavedBooks = () => {
-        API.getSavedBooks()
+        API.getBooks()
         .then(res => {
             this.setState({
-                books: res.data
+                savedBooks: res.data
             })
-            console.log(this.state.books);
+            console.log(this.state.savedBooks);
         })
         .catch(err => console.log( err))
     }
@@ -33,9 +33,9 @@ class Saved extends React.Component {
                     <h1>Google Book Search</h1>
                     <h6>Your saved books</h6>
                 </Jumbotron>
-                        {this.state.books.length ? (
+                        {this.state.savedBooks.length ? (
                     <SavedBooks
-                        books={this.state.books}
+                        books={this.state.savedBooks}
                         />
                     ) : (
                     <div>
