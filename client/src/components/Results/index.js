@@ -18,9 +18,9 @@ function Results(props){
                                         "https://img.icons8.com/cute-clipart/64/000000/no-image.png"}/>
                                         <br/>
                                     <a href={book.volumeInfo.previewLink} rel="noreferrer" >
-                                    <Button variant="success" className="px-2 mt-2"></Button>
+                                    <Button variant="success" >google info</Button>
                                     </a>
-                                    <Button variant="success" className="px-2 ml-1 mt-2" onClick={props.save}></Button>       
+                                    <Button variant="success" onClick={props.save(book)}>save</Button>       
                             </Col>
                             <Col>
                                 <p>{book.volumeInfo.description}</p>

@@ -10,7 +10,7 @@ class Search extends React.Component {
 
     state = {
         books: [],
-        searchTerm: ""
+        search: ""
     };
 
     handleInputChange = event => {
@@ -26,7 +26,7 @@ class Search extends React.Component {
     };
 
     getBook = () => {
-        const query = this.state.searchTerm.replace(/ /g,"%20").toLowerCase()
+        const query = this.state.search.replace(/ /g,"%20").toLowerCase()
         console.log(query); 
         API.getGB(query)
         .then(res => {
@@ -39,7 +39,7 @@ class Search extends React.Component {
         API.saveBook({
             _id: bookData.id,
             title: bookData.title,
-            authors: bookData.authors,
+            author: bookData.authors,
             description: bookData.description,
             image: bookData.image,
             link: bookData.link
@@ -59,7 +59,6 @@ class Search extends React.Component {
           <Input
             onChange={this.handleInputChange}
             name="search"
-            placeholder="Title (required)"
             value={this.state.search}
           />
           <FormBtn
