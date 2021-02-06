@@ -1,6 +1,6 @@
 import React from 'react'
 import API from "../../utils/API";
-import Container from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import Jumbotron from "../../components/Jumbotron";
 import { Input, FormBtn } from "../../components/Form";
 import Results from "../../components/Results";
@@ -53,7 +53,7 @@ class Search extends React.Component {
      <Container>
           <Jumbotron>
           <h1>Google Book Search</h1>
-          <h6>Search for and save books you like!</h6>
+          <h5>Search for and save books you like!</h5>
         </Jumbotron>
         <form>
           <Input
