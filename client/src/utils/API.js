@@ -5,7 +5,7 @@ const APIKEY = `&printType=books&key=${process.env.REACT_APP_GB_API_KEY}`;
 
 export default {
   // Gets Google Books
-  getGoogleBooks: function() {
+  getGB: function() {
     return axios.get(BASEURL + query + APIKEY);
   },
 

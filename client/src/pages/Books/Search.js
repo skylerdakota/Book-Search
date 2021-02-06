@@ -1,6 +1,5 @@
 import React from 'react'
-import API from "../utils/API";
-import Nav from "../../components/Nav";
+import API from "../../utils/API";
 import Container from 'react-bootstrap'
 import Jumbotron from "../../components/Jumbotron";
 import { Input, FormBtn } from "../../components/Form";
@@ -27,9 +26,9 @@ class Search extends React.Component {
     };
 
     getBook = () => {
-        const title = this.state.searchTerm.replace(/ /g,"%20").toLowerCase()
-        console.log(title); 
-        API.getBook(title)
+        const query = this.state.searchTerm.replace(/ /g,"%20").toLowerCase()
+        console.log(query); 
+        API.getGB(query)
         .then(res => {
             this.setState({
             books: res.data.items
@@ -51,7 +50,6 @@ class Search extends React.Component {
     render(){
     return (
    <div>
-     <Nav />
      <Container>
           <Jumbotron>
           <h1>Google Book Search</h1>
@@ -59,13 +57,13 @@ class Search extends React.Component {
         </Jumbotron>
         <form>
           <Input
-            onChange={handleInputChange}
+            onChange={this.handleInputChange}
             name="search"
             placeholder="Title (required)"
             value={this.state.search}
           />
           <FormBtn
-            onClick={handleFormSubmit}
+            onClick={this.handleFormSubmit}
           >
             Search
           </FormBtn>

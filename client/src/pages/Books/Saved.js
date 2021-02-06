@@ -1,9 +1,8 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import Nav from "../../components/Nav";
 import Jumbotron from "../../components/Jumbotron";
 import SavedBooks from "../components/SavedBooks/SavedBooks";
-import API from "../utils/API";
+import API from "../../utils/API";
 
 class Saved extends React.Component {
     state = {
@@ -29,7 +28,6 @@ class Saved extends React.Component {
     render(){
         return(
             <div>
-            <Nav />
             <Container>
                 <Jumbotron>
                     <h1>Google Book Search</h1>
